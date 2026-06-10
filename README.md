@@ -10,17 +10,16 @@ PulseIQ AI is an AI-powered clinical document intelligence platform built on AWS
 
 ---
 
-## Features
+## Key Capabilities
 
-* Upload and process clinical PDF documents in real time
-* Automated OCR extraction using Amazon Textract (asynchronous workflow)
-* Event-driven document processing pipeline using AWS Step Functions
-* Bedrock Knowledge Base integration with automated ingestion sync
-* Semantic retrieval powered by OpenSearch Serverless vector storage
-* Multi-agent AI architecture using Amazon Bedrock Agents
-* Supervisor agent orchestration for collaborative clinical reasoning
-* Real-time conversational querying through a Streamlit-based interface
-* DynamoDB-backed document metadata tracking and indexing
+* Converted diagnostic PDFs into searchable text using asynchronous OCR workflows powered by Amazon Textract.
+* Automated end-to-end document processing through AWS Step Functions triggered by Amazon S3 event notifications.
+* Synchronized processed clinical documents into Amazon Bedrock Knowledge Bases using custom ingestion workflows and OpenSearch Serverless vector indexing.
+* Enabled semantic retrieval over patient records using Cohere Embed Multilingual v3 embeddings and OpenSearch Serverless.
+* Built a collaborative multi-agent architecture using Amazon Bedrock Agents, including a Supervisor Agent coordinating specialized clinical agents for Q&A, summarization, and entity extraction.
+* Maintained end-to-end document traceability using Amazon DynamoDB to track document status, ingestion jobs, processing timestamps, and storage paths.
+* Exposed backend capabilities through Amazon API Gateway and AWS Lambda to support document uploads, metadata retrieval, and conversational querying.
+* Delivered real-time clinical interactions through a Streamlit interface hosted on Amazon EC2.
 
 ---
 
@@ -86,3 +85,8 @@ PulseIQ AI is an AI-powered clinical document intelligence platform built on AWS
 Python • Streamlit • AWS • Amazon Bedrock • DynamoDB • OpenSearch Serverless • Textract • Step Functions
 
 ---
+## Challenges & Engineering Decisions
+- Implemented a custom Lambda-based Bedrock ingestion trigger because Step Functions does not natively support startIngestionJob.
+- Designed polling logic to handle Textract asynchronous workflows reliably.
+- Resolved Step Functions JSONPath and Lambda serialization issues during orchestration.
+- Used DynamoDB metadata tracking to maintain end-to-end document traceability.
