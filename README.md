@@ -42,7 +42,7 @@ PulseIQ AI is an AI-powered clinical document intelligence platform built on AWS
 
 ## Architecture Diagram
 
-![PulseIQ Architecture](architecture/pulseiq-architecture.png)
+![PulseIQ Architecture](architecture/pulseiq-architecture1.png)
 
 ---
 
